@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Home Page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-		<div style="padding-left:1000px;"><a href="/Blog/index.php?view=createarticle">Create</a></div>
-		<p style="clear:both"></p>
-        <?php 
+<?php 
         $conn = mysqli_connect('localhost', 'root', '', 'article');
  
         $result = mysqli_query($conn, 'select count(id) as total from articles');
@@ -32,8 +22,10 @@
         $result = mysqli_query($conn, "SELECT * FROM articles LIMIT $start, $limit");
  
         ?>
-        <div>
+        <div class="main-left">
+			<div class="con1">
 			<h1>Article List</h1>
+			
             <?php 
             while ($row = mysqli_fetch_assoc($result)){
 				$title=$row["title"];
@@ -46,8 +38,10 @@
 			<?php
             }
             ?>
+			</div>
         </div>
-        <div class="pagination">
+		<div style="clear:both"><br/></div>
+        <div style="text-align:center">
            <?php 
             if ($current_page > 1 && $total_page > 1){
                 echo '<a href="index.php?page='.($current_page-1).'">Prev</a> | ';
@@ -67,5 +61,3 @@
             }
            ?>
         </div>
-    </body>
-</html>

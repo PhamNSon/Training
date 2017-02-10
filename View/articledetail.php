@@ -1,5 +1,6 @@
 <h1>ARTICLE DETAILS</h1>
-<div>
+<div class="row">
+	<div class="col-md-6">
         <?php
 		$conn = mysqli_connect('localhost', 'root', '', 'article');
             if(isset($_GET['id'])){
@@ -10,7 +11,10 @@
             }
         ?>
 		<h3>Article title : <?php echo $row["title"] ?></h3>
-		Article content : <br/><textarea cols="50" rows="20"><?php echo $row["content"] ?></textarea>
+		Article content : <br/><textarea cols="100" rows="20"><?php echo $row["content"] ?></textarea>
 		<p>Date created : <?php echo $row["date_created"] ?></p>
-		<p style="padding-left:600px"><a href="/Blog/index.php">Home</a></p>
+	</div>
  </div>
+ <div style="clear:both">
+	<p style="padding-left:600px"><a href="/Blog/index.php">Home</a></p>
+</div>
